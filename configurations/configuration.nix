@@ -22,6 +22,11 @@ blacklistedKernelModules = [
 "iTCO_wdt"
 "iTCO_vendor_support"
 "watchdog"
+"thunderbolt"
+"ahci"
+"libahci"
+"joydev"
+"mousedev"
 ];
 };
 
@@ -29,7 +34,10 @@ networking = {
 hostName = "pc";
 networkmanager.enable = true;
 firewall.enable = true;
+modemmanager.enable = false;
 };
+
+systemd.services.NetworkManager-wait-online.enable = false;
 
 console = {
 keyMap = "br-abnt2";
