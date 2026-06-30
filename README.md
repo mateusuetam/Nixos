@@ -14,7 +14,7 @@ Pensado para um fluxo de trabalho dinâmico, visualmente limpo e de baixo consum
 
 * **Arquitetura Modular:** Crie e adicione novos perfis de usuários na pasta `users` e ative ou desative interfaces (ex: `Niri`, `Sway`, `Hyperland`...) declarando-as no arquivo `configuration.nix`.
 
-* **Shell Própria (Quickshell):** Interface escrita em QML com suporte a notificações, controle de volume/brilho, menu de aplicativos, facilidade de troca de temas (Gruvbox) e lockscreen integrada via PAM.
+* **Shell Própria (Quickshell):** Interface escrita em QML com suporte a notificações, controle de volume/brilho, menu de aplicativos, facilidade de troca de cores e fontes através do arquivo de registro (default: Gruvbox e Krypton) e lockscreen integrada via PAM.
 
 * **Otimizações de Kernel:** Ajustes para uma inicialização mais rápida, como a desativação de watchdogs e kernel customizado.
 
