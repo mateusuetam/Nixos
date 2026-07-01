@@ -14,7 +14,7 @@ Pensado para um fluxo de trabalho dinâmico, visualmente limpo e de baixo consum
 
 * **Arquitetura Modular:** Crie e adicione novos perfis de usuários na pasta `users` e ative ou desative interfaces (ex: `Niri`, `Sway`, `Hyperland`...) declarando-as no arquivo `configuration.nix`.
 
-* **Shell Própria (Quickshell):** Interface escrita em QML com suporte a notificações, controle de volume/brilho, menu de aplicativos, facilidade de troca de cores e fontes através do arquivo de registro (default: Gruvbox e Krypton) e lockscreen integrada via PAM.
+* **Shell Própria (Quickshell):** Interface escrita em QML com suporte a notificações com cores de bordas dinâmicas e sincronizadas com a barra principal, controle de volume/brilho, integração com o gammastep com a possibilidade de seleção de diferentes valores de temperatura da cor da tela, menus de aplicativos, sessão, clipboard, bluetooth e de network, facilidade de troca de cores e fontes através do arquivo de registro (default: Gruvbox e Krypton) e lockscreen integrada via PAM.
 
 * **Otimizações de Kernel:** Ajustes para uma inicialização mais rápida, como a desativação de watchdogs e kernel customizado.
 
@@ -44,8 +44,12 @@ A pasta quickshell/modules gerencia diversos recursos direto no painel:
 
     • Módulo Bluetooth & NetworkManager integrado
 
+    • Menu de seleção de temperatura de cores (Gammastep)
+
     • Controle de Mídia via MPRIS
 
     • Gerenciador de Área de Transferência (Clipboard)
 
     • Tela de Bloqueio customizada com prompt de senha integrado ao PAM
+
+    • Start Menu para seleção de aplicativos e Menu de Sessão
