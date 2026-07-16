@@ -60,12 +60,12 @@ ${pkgs.coreutils}/bin/chown -h "${owner}" "$target_home_path"
 }
 
 link_dotfile "${../../../quickshell/shell}" "${configDir}/quickshell"
-link_dotfile "${../settings/.bashrc}" "${homeDir}/.bashrc"
 link_dotfile "${../settings/.icons}" "${homeDir}/.icons"
 link_dotfile "${../settings/alacritty/alacritty.toml}" "${configDir}/alacritty/alacritty.toml"
 link_dotfile "${../settings/niri/config.kdl}" "${configDir}/niri/config.kdl"
-link_dotfile "${../settings/preferences/mpv.conf}" "${configDir}/mpv/mpv.conf"
 link_dotfile "${../settings/preferences/mimeapps.list}" "${configDir}/mimeapps.list"
+link_dotfile "${../settings/preferences/mpv.conf}" "${configDir}/mpv/mpv.conf"
+link_dotfile "${../settings/.bashrc}" "${homeDir}/.bashrc"
 '';
 };
 };

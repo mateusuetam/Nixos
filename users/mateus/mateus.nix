@@ -2,12 +2,11 @@
 
 {
 imports = [
-./bundles/applications.nix
 ./bundles/browser.nix
 ./bundles/course.nix
-./bundles/neovim.nix
 ./bundles/desktop.nix
 ./bundles/dotfiles.nix
+./bundles/neovim.nix
 ../../quickshell/shell.nix
 ];
 
@@ -23,14 +22,13 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 };
 
 my = {
-applications = {
+desktop = {
 opensource.enable = true;
-proprietary.enable = true;
+proprietary.enable = false;
 };
 browser.enable = true;
 course.enable = true;
 neovim.enable = true;
-desktop.enable = true;
 dotfiles = {
 enable = true;
 homeDir = "/home/mateus";

@@ -1,14 +1,21 @@
 { config, lib, pkgs, ... }:
 
 {
-options.my.desktop.enable =
-lib.mkEnableOption "Bundle de ambiente desktop";
+options.my.desktop = {
+opensource.enable = lib.mkEnableOption "Bundle de ambiente desktop opensource";
+proprietary.enable = lib.mkEnableOption "Bundle de ambiente desktop proprietário";
+};
 
-config = lib.mkIf config.my.desktop.enable {
+config = lib.mkMerge [
+
+(lib.mkIf config.my.desktop.opensource.enable {
 
 xdg.portal.enable = true;
 
+environment.defaultPackages = lib.mkForce [];
+
 fonts.packages = with pkgs; [
+monaspace
 noto-fonts
 noto-fonts-cjk-sans
 noto-fonts-color-emoji
@@ -29,11 +36,30 @@ niri.enable = true;
 
 users.users.mateus.packages = with pkgs; [
 alacritty
+bc
 bibata-cursors
+gimp
+mpv
 tree
 unzip
-zip
 xwayland-satellite
+zip
 ];
-};
+})
+
+(lib.mkIf config.my.desktop.proprietary.enable {
+
+nixpkgs.config.allowUnfreePredicate = pkg:
+builtins.elem (lib.getName pkg) [
+"spotify"
+"discord"
+];
+
+users.users.mateus.packages = with pkgs; [
+discord
+spotify
+];
+})
+
+];
 }

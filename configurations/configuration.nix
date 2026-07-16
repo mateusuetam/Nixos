@@ -39,6 +39,7 @@ extraModprobeConfig = ''
 options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss=y
 options rtw89_core disable_ps_mode=y
 '';
+tmp.cleanOnBoot = true;
 };
 
 networking = {
@@ -51,7 +52,8 @@ modemmanager.enable = false;
 
 systemd.services.NetworkManager-wait-online.enable = false;
 
-environment.etc."systemd/system-sleep/rfkill".source =
+environment = {
+etc."systemd/system-sleep/rfkill".source =
 pkgs.writeShellScript "rfkill-sleep" ''
 case "$1" in
 pre)
@@ -62,6 +64,7 @@ ${pkgs.util-linux}/bin/rfkill unblock all
 ;;
 esac
 '';
+};
 
 console = {
 keyMap = "br-abnt2";
@@ -74,6 +77,9 @@ time.timeZone = "America/Recife";
 nix = {
 settings = {
 auto-optimise-store = true;
+allowed-users = [
+"@wheel"
+];
 experimental-features = [
 "nix-command"
 "flakes"
@@ -82,7 +88,7 @@ experimental-features = [
 gc = {
 automatic = true;
 dates = "weekly";
-options = "--delete-older-than 7d";
+options = "--delete-older-than 3d";
 };
 };
 
@@ -90,7 +96,11 @@ hardware = {
 bluetooth.enable = true;
 };
 
-security.rtkit.enable = true;
+security = {
+rtkit.enable = true;
+sudo.execWheelOnly = true;
+protectKernelImage = true;
+};
 
 services = {
 pipewire = {

@@ -13,11 +13,16 @@ policies = {
 DisableTelemetry = true;
 DisableFirefoxStudies = true;
 DisablePocket = true;
-DisableFirefoxAccounts = true;
 DisableAccounts = true;
 DisableFirefoxScreenshots = true;
+DisableMasterPasswordCreation = true;
+DisableProfileImport= true;
+DisableProfileRefresh = true;
 DisableSetDesktopBackground = true;
+DisableFormHistory= true;
+DisablePasswordReveal = true;
 DontCheckDefaultBrowser = true;
+PromptForDownloadLocation = true;
 OfferToSaveLogins = false;
 PasswordManagerEnabled = false;
 AutofillAddressEnabled = false;
@@ -27,7 +32,6 @@ OverridePostUpdatePage = "";
 DisplayBookmarksToolbar = "newtab";
 DisplayMenuBar = "default-off";
 SearchBar = "unified";
-PromptForDownloadLocation = true;
 RequestedLocales = [ "pt-BR" ];
 
 SearchEngines = {
@@ -77,6 +81,11 @@ installation_mode = "force_installed";
 install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
 };
 
+"FirefoxColor@mozilla.com" = {
+installation_mode = "force_installed";
+install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
+};
+
 "pt-BR@dictionaries.addons.mozilla.org" = {
 installation_mode = "force_installed";
 install_url = "https://addons.mozilla.org/firefox/downloads/latest/corretor/latest.xpi";
@@ -90,10 +99,6 @@ Preferences = {
 # Idioma e Localização de Websites
 "intl.accept_languages" = "pt-br,pt,en-us,en";
 "intl.locale.requested" = "pt-BR";
-
-# Estética: Dark Mode
-"ui.systemUsesDarkTheme" = 1;
-"browser.in-content.dark-mode" = true;
 
 # Telemetria
 "datareporting.policy.dataSubmissionEnabled" = false;
@@ -161,16 +166,19 @@ Preferences = {
 # Privacidade Global e Proteção Contra Rastreadores
 "browser.contentblocking.category" = "strict";
 "privacy.globalprivacycontrol.enabled" = true;
+"geo.enabled" = false;
+"browser.send_pings" = false;
 "dom.battery.enabled" = false;
 
 # Mídia e Recursos
-"media.peerconnection.enabled" = true;
 "media.eme.enabled" = true;
-"pdfjs.enabledCache.state" = false;
+"media.navigator.enabled" = false;
+"media.peerconnection.enabled" = false;
+"media.peerconnection.use_document_iceservers" = false;
 "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
+"pdfjs.enabledCache.state" = false;
 
 # Performance
-"gfx.webrender.all" = true;
 "media.ffmpeg.vaapi.enabled" = true;
 "browser.cache.disk.enable" = false;
 "browser.cache.disk.smart_size.enabled" = false;
