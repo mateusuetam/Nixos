@@ -49,10 +49,15 @@ right 20
 top 20
 bottom 20
 }
+background-color "transparent"
 }
 window-rule {
 clip-to-geometry true
 open-maximized true
+}
+layer-rule {
+match namespace="^wallpaper$"
+place-within-backdrop true
 }
 binds {
 Mod+Return { spawn "alacritty"; }
