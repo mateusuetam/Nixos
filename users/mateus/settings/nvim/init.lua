@@ -22,12 +22,13 @@ vim.g.netrw_banner=0
 -- remap
 vim.g.mapleader=" "
 vim.keymap.set('n','<leader>e','<cmd>Alpha<CR>')
-vim.keymap.set('n','<leader>w',vim.cmd.w)
+vim.keymap.set('n','<leader>s',vim.cmd.w)
 vim.keymap.set('n','<leader>q',vim.cmd.q)
 vim.keymap.set({'n','v'},'<Leader>y','"+y')
 vim.keymap.set({'n','v'},'<Leader>p','"+p')
+vim.keymap.set('n', '<leader>w', '<cmd>global/^$/delete<CR>')
 vim.keymap.set('n', '<leader>a', ':%left<CR>')
-vim.keymap.set('n', '<leader>s', '<cmd>global/^$/delete<CR>')
+vim.keymap.set('n', '<leader>d', ':%s/  \\+/ /g<CR>')
 vim.keymap.set('n','<Esc>','<cmd>nohlsearch<CR>')
 
 -- telescope
